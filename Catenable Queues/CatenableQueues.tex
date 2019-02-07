@@ -1,10 +1,13 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[danish]{babel}
+\usepackage{utopia}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{cmap}
 
-\title{Ugeopgave 9 - DMA}
-\author{Edi Begovic}
+\title{Catenable Queues - ADS}
+\author{Edi Begovic | Høgni Jacobsen | Gergö Koncz}
 \date{\today}
 
 \def\arraystretch{1.5}
@@ -13,9 +16,31 @@
 \begin{document} 
 \maketitle
 
-\section*{Del 1}
+\section*{Question 1}
+\headline{-} \ \\
 
-\headline{1} \ \\
-Til at vise at noget er en ordensrelation, skal følgende betingelser gøre
+\noindent
+For this implementation..
+
+\begin{lstlisting}[escapeinside={{*}{*}}]
+
+removeall(item):
+
+    tempQueue = new queue
+
+    *\textbf{While}* !this.isEmpty:
+
+        Current = this.dequeue()
+        
+        If (current != item):
+            tempQueue.enqueue(current)
+    
+    This = tempQueue
+
+\end{lstlisting}
+
+
+\section*{Question 2}
+\headline{-} \ \\
 
 \end{document}

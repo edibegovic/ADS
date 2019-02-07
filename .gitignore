@@ -12,5 +12,5 @@
 *.fot
 *.cb
 *.cb2
-.*.lb
- *.pdf
+*.lb
+*.pdf

@@ -16,33 +16,74 @@
 \begin{document} 
 \maketitle
 
+\ \\
+\noindent
+The pseudo-code will reference the queue on which the function is called as \textit{q}.
+\ \\
 \section*{Question 1}
 \headline{-} \ \\
 
 \noindent
-For this implementation 
+The following implementation removes all occurances of a given item from the queue by defining a temporary queue
+object to which we enqueue every item from the original queue which does not match the item for removal. 
+Lastly, we replace the reference to q with the temporary queue.
 
+\noindent
 \begin{lstlisting}[escapeinside={{*}{*}}]
 
+<<<<<<< HEAD
 removeall(items):
 
 <<<<<<< Updated upstream
     tempQueue = *\textbf{new}* queue
 =======
 >>>>>>> Stashed changes
+=======
+q.removeall(item):
 
-    *\textbf{While}* !this.isEmpty:
+    temporaryQueue = *\textbf{new}* queue
+>>>>>>> master
 
-        Current = this.dequeue()
+    *\textbf{While}* q.!isEmpty:
+
+        Current = q.dequeue()
         
-        If (current != item):
-            tempQueue.enqueue(current)
+        *\textbf{if}* (current != item):
+            temporaryQueue.enqueue(current)
     
-    This = tempQueue
+    q = temporaryQueue
 
 \end{lstlisting}
 
+\newpage
 \section*{Question 2}
 \headline{-} \ \\
+The following implementation 'concatenates' the queue \textit{p} onto the queue \textit{q} by
+dequeueing every item of \textit{p} and enqueuing it on \textit{q}.
+ \\
+
+\noindent
+
+\begin{lstlisting}[escapeinside={{*}{*}}]
+    q.enqueueall(p):
+        *\textbf{while}* !p.isEmpty():
+            q.enqueue(p.dequeue)
+\end{lstlisting}
+
+\ \\
+\section*{Question 3}
+\headline{-} \ \\
+The following implementation 'concatenates' the queue \textit{p} onto the queue \textit{q} by
+dequeueing every item of \textit{p} and enqueuing it on \textit{q}.
+ \\
+
+\noindent
+
+\begin{lstlisting}[escapeinside={{*}{*}}]
+    q.enqueueall(p):
+        While !p.isEmpty():
+            q.enqueue(p.dequeue)
+\end{lstlisting}
+
 
 \end{document}

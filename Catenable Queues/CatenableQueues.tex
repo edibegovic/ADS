@@ -80,6 +80,11 @@ This implementation of the FIFO queue is based on linked lists and thus we can s
 \ \\
 \section*{Question 4}
 \headline{-} \ \\
+A FIFO queue based on a resizing array would operate on the principle that an array is resized 
+to double its size once full or half its size once capacity is at a quarter. The is achieved by keeping tracking of 
+the number of items in the queue, once the previously mentioned conditions are met then a new array 
+of the appropriate size is created and enqueueall will be used to depopulate the old array and populate the new one.
+\\
 
 
 

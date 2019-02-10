@@ -101,7 +101,6 @@ We are lucky enough that the implementation of the FIFO queue based on linked li
 As a starting point for our implementation of the  of the FIFO queue (using resizing arrays) the LIFO stack implementation (Sedgewick p 141) was very useful.
 \ \\
 
-The structures are similar in a sense that for the queue we would use the same resize() and isEmpty() function and we would keep track of the size of the array the same way.
 \noindent
 A FIFO queue based on a resizing array would operate on the same principle (with resize() and isEmpty()), that an array is resized 
 to double its size once full or half its size once only a quarter of the array's capacity is used. This is achieved by keeping tracking of 

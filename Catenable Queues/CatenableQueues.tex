@@ -29,7 +29,7 @@ object to which we enqueue every item from the original queue that does not matc
 \ \\
 
 \noindent
-To proceed from the point of the original queue being empty and the temporary queue having all the elements in the proper order, we considered two options. We could dequeue all the elements from the temporary queue and enqueue them to the original queue. However, since the temporary queue is the perfect queue all we need to do would be to change the reference of the original queue to the temporary thus entrusting the destiny of the original emptied queue to the garbage collector. 
+To proceed from the point of the original queue being empty and the temporary queue having all the elements in the proper order, we considered two options. We could dequeue all the elements from the temporary queue and enqueue them to the original queue. However, since the temporary queue is the perfect queue all we need to do is change the reference of the original queue to the temporary thus entrusting the destiny of the original emptied queue to the garbage collector. 
 
 \noindent
 \begin{lstlisting}[escapeinside={{*}{*}}]

@@ -73,17 +73,23 @@ dequeueing every item of \textit{p} and enqueuing it on \textit{q}.
 \ \\
 \section*{Question 3}
 \headline{-} \ \\
-The following implementation 'concatenates' the queue \textit{p} onto the queue \textit{q} by
-dequeueing every item of \textit{p} and enqueuing it on \textit{q}.
+This implementation of the FIFO queue is based on linked lists and thus we can simply set the 
+'next'-pointer of the last node (of \textit{q}) to point to the first node of \textit{p}.
  \\
 
 \noindent
 
 \begin{lstlisting}[escapeinside={{*}{*}}]
     q.enqueueall(p):
-        While !p.isEmpty():
-            q.enqueue(p.dequeue)
+        (q.last).ext = p.first
 \end{lstlisting}
+ 
+\ \\
+
+\ \\
+\section*{Question 4}
+\headline{-} \ \\
+
 
 
 \end{document}

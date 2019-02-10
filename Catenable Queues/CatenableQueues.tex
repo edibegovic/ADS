@@ -38,7 +38,7 @@ q.removeall(item):
 
     temporaryQueue = *\textbf{new}* queue
 
-    *\textbf{While}* !q.isEmpty():
+    *\textbf{while}* !q.isEmpty():
 
         Current = q.dequeue()
         
@@ -109,17 +109,21 @@ of the appropriate size is created.
 \ \\
 
 \noindent
-The push function of the stack is similar to the enqueue in the queue. However, the push function places the element at the end of the array, while enqueue would place the elements at the beginning. Before assigning the 0 index of the array we would use the reverseIterator of the implementation to iterate through the array and increase the index of all the elements. The reverseIterator starts at the end of the array therefore we ant lose elements.
+The push function of the stack is similar to the enqueue in the queue. However, the push function places the element at the end of the array, while enqueue would place the elements at the beginning. Before assigning the 0 index of the array we would use the ReverseIterator (starts at the last element of the array) of the implementation to iterate through the array and increase the index of all the elements. The reverseIterator starts at the end of the array therefore we won't be losing elements. Once all the already existing elements are moved one spot, the new element can be assigned to the 0 index. 
 \ \\
 
 \noindent
-Before all that is executed we would check the size of the array and increase it once needed.
+Performance-wise this method is slow but we came to the conclusion that whether we move the elements in enqueue or it has to be done in dequeue. This way the dequeue method stays quick, only decreases the size then takes the last element of the array. 
+\ \\
+
 
 \begin{lstlisting}[escapeinside={{*}{*}}]
     q.enqueue(item):
     	if(N == a.length):
     		resize(2 a.length)
     	for element in a:
+    		increase index with one
+    	a[0] = item
     		
 \end{lstlisting}
 

@@ -26,7 +26,9 @@ The pseudo-code will reference the queue on which the function is called as \tex
 \noindent
 The following implementation removes all occurances of the given item from the queue by defining a temporary queue
 object to which we enqueue every item from the original queue that does not match the item for removal. 
+\ \\
 
+\noindent
 Once the original queue is empty and we have the temporary q with all the elements in the proper order we considered two solutions. We could dequeue all the elements from the temporary queue and enqueue them all to the original one. However, since the temporary queue is the perfect queue that we need we change the reference of the original queue to the temporary one and trust the destiny of the original emptied queue to the garbage collector. 
 
 \noindent
@@ -41,7 +43,7 @@ q.removeall(item):
         Current = q.dequeue()
         
         *\textbf{if}* (current != item):
-            temporaryQueue.enqueue(current)
+            temporaryQueue.enqueue(current) 
     
     q = temporaryQueue
 
@@ -52,9 +54,13 @@ q.removeall(item):
 \headline{-} \ \\
 The following implementation 'concatenates' the queue \textit{p} onto the queue \textit{q} by
 dequeueing every item of \textit{p} and enqueuing it on \textit{q}. The speed of this method depends on the size of the second queue, since all of the elements of that one are 'touched' in this method.
+\ \\
 
+\noindent
 At the end it makes sense to change the reference of p to null since while it references the empty queue it can't be collected by the garbage collector. 
+\ \\
 
+\noindent
 By later questions we will see that if we can use the underlying benefits of the linked list implementation the method is much quicker.
  \\
 
@@ -72,7 +78,9 @@ By later questions we will see that if we can use the underlying benefits of the
 \headline{-} \ \\
 This implementation of the FIFO queue is based on linked lists thus we can simply set the 
 'next'-pointer of the last node (of \textit{q}) to point to the first node of \textit{p}.
+\\
 
+\noindent
 We are lucky enough that the implementation of the FIFO queue based on linked lists keeps a reference to both the first and the last elements of the queues, therefor no additional tracking of nodes is needed to realize this assignment.
  \\
 
@@ -85,16 +93,27 @@ We are lucky enough that the implementation of the FIFO queue based on linked li
  
 \ \\
 
-\ \\
+\newpage
 \section*{Question 4}
 \headline{-} \ \\
 
+\noindent
 As a starting point for our implementation of the  of the FIFO queue (using resizing arrays) the LIFO stack implementation (Sedgewick p 141) was very useful.
+\ \\
 
 The structures are similar in a sense that for the queue we would use the same resize() and isEmpty() function and we would keep track of the size of the array the same way.
+\noindent
+A FIFO queue based on a resizing array would operate on the same principle (with resize() and isEmpty()), that an array is resized 
+to double its size once full or half its size once only a quarter of the array's capacity is used. This is achieved by keeping tracking of 
+the number of items in the array, once the previously mentioned conditions are met, a new array 
+of the appropriate size is created.
+\ \\
 
+\noindent
 The push function of the stack is similar to the enqueue in the queue. However, while the push puts the element at the end of the array, in enqueue we would always put the elements at the beginning. Effecting, that before assigning  the 0 indexed of the array we would use the reverseIterator of the implementation to iterate through the array and increasing the index of all the elements. The ReverseIterator starts at the end of the array therefor we ant lose elements.
+\ \\
 
+\noindent
 Before all that is executed we would check the size of the array and increase it once needed.
 
 \begin{lstlisting}[escapeinside={{*}{*}}]

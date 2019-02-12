@@ -45,15 +45,13 @@ class RandomQueue:
         return return_value
 
     def __iter__(self):
-        temp_q = self.q
-        temp_size = self.size()
         mine = []
 
         while not self.isEmpty():
             mine.append(self.dequeue())
 
-        self.q = temp_q
-        self.q_size = temp_size
+        for i in mine:
+            self.enqueue(i)
 
         for x in mine:
             yield x

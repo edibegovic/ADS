@@ -1,38 +1,63 @@
 from algs4.stdlib.stdrandom import uniformInt,shuffle
 from algs4.stdlib.stdstats import mean,stddev
 #from algs4.stdlib.stdio import eprint
+from random import randint 
+
 import sys
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
-
 class RandomQueue:
-    
-    
+    q = []
+    q_size = 0
+
     def __init__(self):
         None
-    def isEmpty(self):
-        None
-    def size(self):
-        None
-    def __len__(self):
-        None
-    def enqueue(self,item):
-        None
-    def sample(self):
-        None
-    def dequeue(self):
-        None
-    def __iter__(self):
-        """
-        Returns an iterator that iterates over the items in this RandomQueue in random order.
 
-        :returns: an iterator that iterates over the items in this RandomQueue in random order.
-        """
-        None
-        # create the right mine
+    def isEmpty(self):
+        return (not bool(self.q_size))
+        
+    def size(self):
+        return self.q_size
+        
+    def __len__(self):
+        return self.size()
+        
+    def enqueue(self,item):
+        if self.q_size != len(self.q):
+            self.q[self.q_size] = item
+        else:
+            self.q.append(item)
+        self.q_size += 1
+        
+    def sample(self):
+        if self.isEmpty():
+            return "nope" 
+        return(self.q[randint(0, self.q_size-1)]) 
+
+    def dequeue(self):
+        if self.isEmpty():
+            return "nope" 
+        random_idx = randint(0, self.q_size-1)
+        return_value = self.q[random_idx]
+        self.q[random_idx] = self.q[self.q_size-1]
+        self.q_size -= 1
+        return return_value
+
+    def __iter__(self):
+        temp_q = self.q
+        temp_size = self.size()
+        mine = []
+
+        while not self.isEmpty():
+            mine.append(self.dequeue())
+
+        self.q = temp_q
+        self.q_size = temp_size
+
         for x in mine:
             yield x
+
 
 # This  "main method" tests your implementation. Do not change it.
 if __name__ == '__main__':

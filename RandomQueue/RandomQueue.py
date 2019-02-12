@@ -32,12 +32,12 @@ class RandomQueue:
         
     def sample(self):
         if self.isEmpty():
-            return "nope" 
+            return NotImplementedError 
         return(self.q[randint(0, self.q_size-1)]) 
 
     def dequeue(self):
         if self.isEmpty():
-            return "nope" 
+            return NotImplementedError 
         random_idx = randint(0, self.q_size-1)
         return_value = self.q[random_idx]
         self.q[random_idx] = self.q[self.q_size-1]

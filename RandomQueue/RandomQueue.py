@@ -24,6 +24,11 @@ class RandomQueue:
         return self.size()
         
     def enqueue(self,item):
+        
+        # Below block handles resizing of the 'array', by implementing the dynamic array 
+        # data structure. If the array is full before an enqueue, an array of double the 
+        # size is initialized and populated with the items of the current queue.  
+
         if self.q_size == len(self.q):
             if self.size() != 0: temporaryQueue = [[] for x in range(self.size()*2)]
             else: temporaryQueue = [[]]
@@ -44,12 +49,21 @@ class RandomQueue:
         if self.isEmpty():
             return NotImplementedError 
 
+        # The below block handle the down-sizing of the dynamic array.
+        # If the number of items in the queue falls below 1/4 the size
+        # of the array, the size of the array is halved. 
+
         if self.q_size <= len(self.q)*0.25:
             temporaryQueue = [[] for x in range(int(len(self.q)*0.5))]
 
             for i in range(self.size()):
                 temporaryQueue[i] = self.q[i]
             self.q = temporaryQueue
+
+        # When a random element is dequeued (and thus removed), the
+        # last item in the queue 'fills its spot' in the array, such
+        # that all items in the queue are positioned in the first 
+        # part of the array. 
 
         random_idx = randint(0, self.q_size-1)
         return_value = self.q[random_idx]
@@ -59,13 +73,16 @@ class RandomQueue:
         return return_value
 
     def __iter__(self):
-        mine = [[] for i in range(self.size())]
+        # Init array of size of queue
+        # O(N)
 
+        # Populate array with values of queue
+        # O(N)
         for i in range(self.size()):
             mine[i] = self.q[i]
 
-        for i in range(self.size()):
-            ran_int_one = randint(0, self.size()-1) 
+        # Knuth shuffle 
+        # O(N)
             ran_int_two = randint(0, self.size()-1)
             mine[ran_int_one], mine[ran_int_two] = mine[ran_int_two], mine[ran_int_one]
 

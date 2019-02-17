@@ -30,8 +30,8 @@ class RandomQueue:
         # size is initialized and populated with the items of the current queue.  
 
         if self.q_size == len(self.q):
-            if self.size() != 0: temporaryQueue = [[] for x in range(self.size()*2)]
-            else: temporaryQueue = [[]]
+            if self.size() != 0: temporaryQueue = [None for x in range(self.size()*2)]
+            else: temporaryQueue = [None]
 
             for i in range(self.size()):
                 temporaryQueue[i], self.q[i] = self.q[i], temporaryQueue[i]
@@ -43,6 +43,7 @@ class RandomQueue:
     def sample(self):
         if self.isEmpty():
             return NotImplementedError 
+
         return(self.q[randint(0, self.q_size-1)]) 
 
     def dequeue(self):
@@ -54,7 +55,7 @@ class RandomQueue:
         # of the array, the size of the array is halved. 
 
         if self.q_size <= len(self.q)*0.25:
-            temporaryQueue = [[] for x in range(int(len(self.q)*0.5))]
+            temporaryQueue = [None for x in range(int(len(self.q)*0.5))]
 
             for i in range(self.size()):
                 temporaryQueue[i] = self.q[i]
@@ -68,7 +69,7 @@ class RandomQueue:
         random_idx = randint(0, self.q_size-1)
         return_value = self.q[random_idx]
         self.q[random_idx] = self.q[self.q_size-1]
-        self.q[self.q_size-1] = []
+        self.q[self.q_size-1] = None
         self.q_size -= 1
         return return_value
 

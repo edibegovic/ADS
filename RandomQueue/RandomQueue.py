@@ -76,16 +76,18 @@ class RandomQueue:
     def __iter__(self):
         # Init array of size of queue
         # O(N)
+        mine = [None for i in range(self.size())]
 
         # Populate array with values of queue
         # O(N)
         for i in range(self.size()):
             mine[i] = self.q[i]
-
+        
         # Knuth shuffle 
         # O(N)
-            ran_int_two = randint(0, self.size()-1)
-            mine[ran_int_one], mine[ran_int_two] = mine[ran_int_two], mine[ran_int_one]
+        for i in range(self.size()-2):
+            j = i + randint(0,self.size()-(i+1))
+            mine[i], mine[j] = mine[j], mine[i] 
 
         for x in mine:  
             yield x

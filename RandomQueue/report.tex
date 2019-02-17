@@ -22,28 +22,16 @@
 Our program \texttt{RandomQueue.py} implements the complete API.
 The submission at time [14-02-2019 17:03] passed all tests on CodeJudge.
 
-The items are stored in a list in their sequental order.
+The items are stored in a list in their sequential order.
 
-The \texttt{enqueue} operation respects this order by enqueuing the new elements at the end of the list. 
-This assigment is achieved in constant time.
+The \texttt{enqueue}  operation uses  a resizing list implementation. Values are sequentially assigning to the indexes of the list.
+\texttt{enqueue} is achieved in constant time.
 
-The \texttt{sample} operation uses a random int to select a random element of the list in constant time. 
+The \texttt{sample} operation uses a random int to select a random index in the list. This is achieved in constant time. 
 
-The \texttt{dequeue} operation selects a random integer in the range of the list as the index of the element to return. After this, the last element of the list gets assigned to the index of the selected element therefor the restructuring of the list  takes constant time.
+The \texttt{dequeue} operation uses  a resizing list implementation. The \texttt{dequeue} operation selects a random integer in the range of the list as the index of the element to return. After this, the last element of the list gets assigned to the index of the selected element therefore the restructuring of the list takes constant time.
 
-In our implementation, the iterator uses a temporarily created list to create a random order of the elements. 
-Initialising this list takes linear time, it uses the dequeue to create a random order for the elements. After dequeuing all the elements they have to be enqueued back to the list which also takes linear time. 
-After this we loop through the temporarily created list. Since the elements are already in random order we can use a simple for loop, that takes linear time as well.
-
-
-\subsection{Notes}
-
-Alternative consideration for iterator:
-\begin{enumerate}
-\item Copy the list (linear time) to temporary list
-\item Shuffle it with random.shuffle
-\item Yield each element with regular for loop
-\end{enumerate}
+In our implementation, the iterator creates an empty list of the same size as the amount of elements in the original list. The original list is then iterate over and the values in it is copied to the new list, our implementation does not copy empty values. Two random integers are generated in the range of the new list. These integers are used to call two indexes in the new list, their values are then swapped. This is done for the range of the new list. All three operations take linear time. 
 
 \end{document}
 

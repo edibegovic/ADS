@@ -24,11 +24,16 @@ class RandomQueue:
         return self.size()
         
     def enqueue(self,item):
-        if self.q_size != len(self.q):
-            self.q[self.q_size] = item
-        else:
-            self.q.append(item)
-        self.q_size += 1
+        if self.q_size == len(self.q):
+            if self.size() != 0: temporaryQueue = [[] for x in range(self.size()*2)]
+            else: temporaryQueue = [[]]
+
+            for i in range(self.size()):
+                temporaryQueue[i], self.q[i] = self.q[i], temporaryQueue[i]
+            temporaryQueue, self.q = self.q, temporaryQueue
+
+        self.q[self.size()] = item
+        self.q_size += 1 
         
     def sample(self):
         if self.isEmpty():

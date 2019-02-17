@@ -15,3 +15,5 @@
 *.lb
 *.pdf
 \.DSStore
+
+RandomQueue/\.DS_Store

@@ -1,37 +1,42 @@
-\documentclass{tufte-handout}
+\documentclass[a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{utopia}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{cmap}
+\setlength\parindent{0pt}
 
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-\usepackage{mathpazo}
-\usepackage{booktabs}
-\usepackage{microtype}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{width=9cm,compat=1.13}
+\title{RandomQueue - ADS}
+\author{Edi Begovic | Høgni Jacobsen | Gergő Koncz}
+\date{\today}
 
-\title{Randomqueue Report}
-\author{Edi Begovic - Høgni Jacobsen - Gergő Koncz}
+\def\arraystretch{1.5}
+\def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
 
-\begin{document}
+\begin{document} 
 \maketitle
-\thispagestyle{empty}
 
-\section{Implementation of Randomqueue}
+\ \\
+\noindent
+The following implementation of the RandomQueue exercise builds on "pseudo-arrays" made 
+with the standard Python list type.
+\ \\
+\section*{Implementation of Randomqueue}
 
-
+\noindent
 Our program \texttt{RandomQueue.py} implements the complete API.
-The submission at time [14-02-2019 17:03] passed all tests on CodeJudge.
+The submission at time [14-02-2019 17:03] passed all tests on CodeJudge. \\
 
-The items are stored in a list in their sequential order.
+The items are stored in a list in their sequential order. \\
 
 The \texttt{enqueue}  operation uses  a resizing list implementation. Values are sequentially assigning to the indexes of the list.
-\texttt{enqueue} is achieved in constant time.
+\texttt{enqueue} is achieved in constant time. \\
 
-The \texttt{sample} operation uses a random int to select a random index in the list. This is achieved in constant time. 
+The \texttt{sample} operation uses a random int to select a random index in the list. This is achieved in constant time.  \\
 
-The \texttt{dequeue} operation uses  a resizing list implementation. The \texttt{dequeue} operation selects a random integer in the range of the list as the index of the element to return. After this, the last element of the list gets assigned to the index of the selected element therefore the restructuring of the list takes constant time.
+The \texttt{dequeue} operation uses  a resizing list implementation. The \texttt{dequeue} operation selects a random integer in the range of the list as the index of the element to return. After this, the last element of the list gets assigned to the index of the selected element therefore the restructuring of the list takes constant time. \\
 
-In our implementation, the iterator creates an empty list of the same size as the amount of elements in the original list. The original list is then iterate over and the values in it is copied to the new list, our implementation does not copy empty values. Two random integers are generated in the range of the new list. These integers are used to call two indexes in the new list, their values are then swapped. This is done for the range of the new list. All three operations take linear time. 
+In our implementation, the iterator creates an empty list of the same size as the amount of elements in the original list. The original list is then iterate over and the values in it is copied to the new list, our implementation does not copy empty values. Two random integers are generated in the range of the new list. These integers are used to call two indexes in the new list, their values are then swapped. This is done for the range of the new list. All three operations take linear time.  \\
 
 \end{document}
-

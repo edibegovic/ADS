@@ -43,9 +43,18 @@ class RandomQueue:
     def dequeue(self):
         if self.isEmpty():
             return NotImplementedError 
+
+        if self.q_size <= len(self.q)*0.25:
+            temporaryQueue = [[] for x in range(int(len(self.q)*0.5))]
+
+            for i in range(self.size()):
+                temporaryQueue[i] = self.q[i]
+            self.q = temporaryQueue
+
         random_idx = randint(0, self.q_size-1)
         return_value = self.q[random_idx]
         self.q[random_idx] = self.q[self.q_size-1]
+        self.q[self.q_size-1] = []
         self.q_size -= 1
         return return_value
 

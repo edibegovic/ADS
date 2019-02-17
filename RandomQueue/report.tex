@@ -30,13 +30,23 @@ The submission at time [14-02-2019 17:03] passed all tests on CodeJudge. \\
 
 The items are stored in a list in their sequential order. \\
 
-The \texttt{enqueue}  operation uses  a resizing list implementation. Values are sequentially assigning to the indexes of the list.
+The \texttt{enqueue}  operation uses  a resizing list implementation. Values are sequentially 
+assigning to the indexes of the list.
 \texttt{enqueue} is achieved in constant time. \\
 
-The \texttt{sample} operation uses a random int to select a random index in the list. This is achieved in constant time.  \\
+The \texttt{sample} operation uses a random int to select a random index in the list. This is 
+achieved in constant time. \\
 
-The \texttt{dequeue} operation uses  a resizing list implementation. The \texttt{dequeue} operation selects a random integer in the range of the list as the index of the element to return. After this, the last element of the list gets assigned to the index of the selected element therefore the restructuring of the list takes constant time. \\
+The \texttt{dequeue} operation uses  a resizing list implementation. The \texttt{dequeue} 
+operation selects a random integer in the range of the list as the index of the element to 
+return. After this, the last element of the list gets assigned to the index of the selected 
+element therefore the restructuring of the list takes constant time. \\
 
-In our implementation, the iterator creates an empty list of the same size as the amount of elements in the original list. The original list is then iterate over and the values in it is copied to the new list, our implementation does not copy empty values. Two random integers are generated in the range of the new list. These integers are used to call two indexes in the new list, their values are then swapped. This is done for the range of the new list. All three operations take linear time.  \\
+In our implementation, the iterator creates an empty list of the same size as the amount of 
+elements in the original list. The original list is then iterate over and the values in it 
+is copied to the new list, our implementation does not copy empty values. Two random integers 
+are generated in the range of the new list. These integers are used to call two indexes in 
+the new list, their values are then swapped. This is done for the range of the new list. All 
+three operations take linear time. \\
 
 \end{document}

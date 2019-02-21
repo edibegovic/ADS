@@ -38,12 +38,50 @@ $[6, 4, 5, 1, 2, 3]$
 \headline{a} \ \\
 
 \noindent
-Assuming the 'first' implies the pointer to the first element in the list 
-(\textit{that is}, that last added item (p. 148)), answer a is correct.
+(\textit{that is}, that last added item (p. 148)), answer a is 4rrect.
 \ \\
 
 \begin{center}
 \includegraphics[scale=0.22]{figure2.png}
 \end{center}
 
-\end{document}
+\headline{b} \ \\
+
+\noindent
+The representation of the elements to be unionised have to be the same after the union and since there are already two elements with the number two as their representation it is quicker to change the representation of four to two.\\
+\begin{center}
+\begin{tabular}{|l||l||l||l||l|}
+\hline
+0 & 1 & 2 & 3 & 4\\ 
+\hline
+0 & 1 & 2 & 2 & 2\\
+\hline
+\end{tabular}
+\end{center}
+\ \\
+
+\headline{c} \ \\
+
+1. The union operation is asymptotically faster
+
+\ \\
+
+\section*{Question 3}
+
+\noindent
+To implement the $min()$ function we cannot just always return the element with 
+the last index of the array, since we cannot be certain that the elements at the 
+same level are sorted. Also, we cannot iterate through the last level of the tree 
+because that would take more than constant time, could be really long by bigger arrays.  
+The implementation of a $min()$ function in constant time and space, we can
+achieve this by keeping track of the minimum element through a variable. We declare it when 
+the first element is created once a new item is inserted, the new item will be 
+compared with the current minimum and replaced if it is lesser than.
+
+
+\section*{Question 4}
+
+\noindent
+Tesinger...
+
+\end{document} 

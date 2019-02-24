@@ -88,6 +88,22 @@ compared with the current minimum and replaced if it is lesser than it.
 \section*{Question 4}
 
 \noindent
-Tesinger...
+All \textit{hints} were used :) 
+\ \\
+
+\noindent
+This data structure can be achived by maintaining two heaps of equal sizes; one max-heap and one min-heap.\ \\
+
+\noindent
+As we add items into our data structure, we determine which heap the item belongs to by comparing the root-values
+of the two heaps (taking constant time) and adding it to the corresponding heap and \textit{swim} it (taking $log~n$ time).\ \\
+
+\noindent
+Should the heap we're adding the item to become larger than the other heap (by more than one item), we simply remove the root 
+of this heap and add it to the other. \ \\
+
+\noindent
+We thus have a data structure where the root of the largest heap always represents the median value, and should both heaps 
+be of the same size, we can simply return the avrage value of the two roots. 
 
 \end{document} 

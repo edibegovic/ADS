@@ -16,18 +16,27 @@ vals = list(map(int, sys.stdin.readlines()))
 #                      sys.exit()
 # print(False)
 
-#Sort by using merge-sort
-
 merge.sort(vals)
 
-#print(vals)
-#binary_search_st.contains(vals, 45)
+def binary_search_recursive(needle, haystack, index = 0):
+    global midway
+    midway = (len(haystack)) // 2
+    if midway < 2:
+        return False
+    if haystack[midway] == needle:
+        return True
+    else:
+        if needle > haystack[midway]:
+            return binary_search_recursive(needle, haystack[midway:], index + midway)            
+        else:
+            return binary_search_recursive(needle, haystack[:midway], index)
 
 for i in range(0, N):
     for j in range(i+1, N):
         for k in range(j+1, N):
             needle = int(vals[i] + vals[j] + vals[k])
-            if -needle in vals:
+            if binary_search_recursive((-1 * needle), vals) == True:
+                print(i,j,k,midway,file=sys.stderr)
                 print(True)
                 sys.exit()
 print(False)

@@ -26,17 +26,9 @@ merge.sort(vals)
 for i in range(0, N):
     for j in range(i+1, N):
         for k in range(j+1, N):
-            needle = int(i + j + k)
-            def binary_search_recursive(needle, haystack, index = 0):
-                midway = (len(vals)) // 2
-                if len(vals) == 1:
-                    return False
-                elif vals[midway] == -(needle):
-                    return True
-                else:
-                    if needle > vals[midway]:
-                        return binary_search_recursive(needle, vals[midway:], index + midway)            
-                    else:
-                        return binary_search_recursive(needle, vals[:midway], index)
-            binary_search_recursive(needle, vals)
+            needle = int(vals[i] + vals[j] + vals[k])
+            if -needle in vals:
+                print(True)
+                sys.exit()
+print(False)
             

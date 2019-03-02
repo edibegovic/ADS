@@ -37,19 +37,27 @@ d3200 = ["Assignment/data/ints-3200-0.txt",
 "Assignment/data/ints-3200-3.txt",
 "Assignment/data/ints-3200-4.txt"]
 
-def run_test(arr, name):
+def run_test(alg, arr, size):
     total = 0.0
     for test in arr:
         start = time.time()
-        subprocess.call("python foursum_fast.py < " + test, shell=True)
+        subprocess.call("python " + alg + "<" + test, shell=True)
         end = time.time()
+        print("curr: ", (end-start))
         total += (end - start)
 
-    print(name, ": ", total/len(arr))
+    print(alg, size, ": ", total/len(arr))
 
-run_test(d100, "100")
-run_test(d200, "200")
-run_test(d400, "400")
-run_test(d800, "800")
-run_test(d1600, "1600")
-run_test(d3200, "3200")
+run_test("foursum_simple.py", d100, "100")
+run_test("foursum_simple.py", d200, "200")
+run_test("foursum_simple.py", d400, "400")
+# run_test("foursum_simple.py", d800, "800")
+# run_test("foursum_simple.py", d1600, "1600")
+# run_test("foursum_simple.py", d3200, "3200")
+
+run_test("foursum_fast.py", d100, "100")
+run_test("foursum_fast.py", d200, "200")
+run_test("foursum_fast.py", d400, "400")
+# run_test("foursum_fast.py", d800, "800")
+# run_test("foursum_fast.py", d1600, "1600")
+# run_test("foursum_fast.py", d3200, "3200")

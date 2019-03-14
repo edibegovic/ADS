@@ -1,19 +1,11 @@
+import sys
 import algs4
 
-with open('tiny.txt') as file:
-    list = []
-    for line in file:
-        list.append(line.strip('\n'))
+a = list(map(int, sys.stdin.readlines()))
 
-#Soley for comparison of indexes in the array. Treat as array.
-def sort(x, y):
-
-
-#Merge sort:
-def merge_sort(list):
-    lenght = len(list)
-    if lenght == 1:
-        return list
-    list_1 = list[0:lenght/2]
-    list_1 = list[lenght/2+1:lenght]
-
+runs = []
+while len(a) > 0:
+    current_letter = a[0]
+    runs.append(current_element)
+    this_index = 0
+    while a > 

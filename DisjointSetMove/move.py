@@ -2,6 +2,8 @@ n, operations = [int(x) for x in input().split()]
 
 primary = [n+int(x) for x in range(0, n)] + [n+int(x) for x in range(0, n)]
 
+size_array = [0 for x in range(0, n)] + [0 for x in range(0, n)]
+
 def find(x):
     if x == primary[x]:
         return x
@@ -20,7 +22,14 @@ def union(x, y):
     y = find(y)
 
     if (x != y):
-        primary[x] = y
+        if size_array[x] < size_array[y]:
+            print(size_array)
+            primary[x] = y
+            size_array[x] += 1
+        else:
+            print(size_array)
+            primary[y] = x
+            size_array[y] += 1
 
 def move(x, y):
     y_root = find(y)

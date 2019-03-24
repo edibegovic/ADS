@@ -22,12 +22,10 @@ def union(x, y):
     y = find(y)
 
     if (x != y):
-        if size_array[x] < size_array[y]:
-            print(size_array)
+        if size_array[x] <= size_array[y]:
             primary[x] = y
             size_array[x] += 1
         else:
-            print(size_array)
             primary[y] = x
             size_array[y] += 1
 

@@ -1,18 +1,40 @@
-#quick union
+n, operations = [int(x) for x in input().split()]
 
-def root(array, p):
-    while array[p] != p:
-        p = array[p]
-    return p
+primary = [n+int(x) for x in range(0, n)] + [n+int(x) for x in range(0, n)]
 
-def connected(array, p, q):
-    return find(array, p) == find(array, q)
-
-def union(array, p, q):
-    if connected(array, p, q):
-        return
+def find(x):
+    if x == primary[x]:
+        return x
     else:
-        array[root(array, p)] == root(array, q)
-        return
+        primary[x] = find(primary[x])
+        return primary[x]
 
-def move():
+def query(x, y):
+    if find(x) == find(y):
+        print("yes")
+    else:
+        print("no")
+
+def union(x, y):
+    x = find(x)
+    y = find(y)
+
+    if (x != y):
+        primary[x] = y
+
+def move(x, y):
+    y_root = find(y)
+    primary[x] = y_root
+
+
+# -------------- start --------------
+
+for i in range(operations):
+    op, x, y = [x for x in input().split()]
+    
+    if op == 'q':
+        query(int(x), int(y))
+    elif op == 'u':
+        union(int(x), int(y))
+    elif op == 'm':
+        move(int(x), int(y))
